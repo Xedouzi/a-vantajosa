@@ -572,7 +572,8 @@
     .cartela:has(input:checked) small { color: #4A4130; }
     .lista-botoes .btn:not(.btn-linha) { background: var(--amarelo); color: #221F1A; }
     .lista-botoes .btn:not(.btn-linha):hover { background: var(--amarelo-2); }
-    .chegar-mapa { filter: invert(.9) hue-rotate(180deg); }
+    /* mapa do Google no escuro; o fundo branco invertido fica escuro enquanto o mapa carrega */
+    .chegar-mapa { background: #fff; filter: invert(.9) hue-rotate(180deg); }
     .ficha, .sacola { box-shadow: 0 0 0 1px var(--linha); }
     .ficha::backdrop, .sacola::backdrop { background: rgba(0, 0, 0, .7); }
     .previa { background: #005C4B; color: #E9EDEF; }
