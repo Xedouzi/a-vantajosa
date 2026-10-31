@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#FFCC1F" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1C1915" media="(prefers-color-scheme: dark)">
-<!-- o site tem modo escuro proprio: a extensao Dark Reader nao mexe -->
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#FFCC1F">
+<!-- o site e sempre claro: a extensao Dark Reader nao mexe -->
 <meta name="darkreader-lock">
 <title>A Vantajosa | Cama, mesa e banho em Cravinhos</title>
 <meta name="description" content="Jogos de cama, edredons, travesseiros, toalhas e panos de prato. Compre pelo site e retire na loja ou receba em casa. Av. Pedro Duarte Amoroso, 846, Cravinhos (SP).">
@@ -38,8 +37,8 @@
      barra de uma toalha, separando as faixas e contornando a lista.
      ============================================================ */
   :root {
-    /* claro e escuro: as cores do escuro ficam no fim do estilo, e o navegador nao escurece o site sozinho */
-    color-scheme: light dark;
+    /* "only light": o site e sempre claro e o navegador nao escurece sozinho */
+    color-scheme: only light;
     --branco:   #FFFFFF;
     --palha:    #FFF8E1;   /* fundo amarelo bem claro das faixas */
     --palha-2:  #FCEFC4;
@@ -530,63 +529,6 @@
   @media (max-width: 600px) { .flutuante { width: 56px; height: 56px; } .flutuante svg { width: 27px; height: 27px; } }
   @media (prefers-reduced-motion: reduce) { .flutuante { transition: none; transform: none; } }
 
-  /* ---------- modo escuro: grafite quente, o amarelo do logo so nos botoes e destaques ---------- */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --branco:   #1C1915;   /* fundo da pagina e dos cartoes */
-      --palha:    #13110E;   /* faixas: mais fundas que os cartoes */
-      --palha-2:  #2A2620;
-      --amarelo-2:#FFD84D;
-      --amarelo-claro: #3A3326;
-      --grafite:  #0E0D0B;
-      --grafite-2:#2A2620;
-      --ouro:     #F5C33B;   /* 10:1 no fundo */
-      --ouro-2:   #FFDB70;
-      --tinta:    #F2ECE1;
-      --tinta-2:  #BDB4A3;
-      --linha:    #34302A;
-      --linha-forte: #7D7566;
-    }
-    html { background: var(--branco); scrollbar-color: #5A5348 var(--branco); }
-    /* texto escuro em cima do amarelo, nos dois temas */
-    .btn, .sacola-botao, .selo { color: #221F1A; }
-    .btn-branco, .btn-linha { color: var(--tinta); }
-    .btn-zap { color: #fff; }
-    .sacola-botao .conta { background: #221F1A; color: #fff; }
-    .redes a:hover { color: #221F1A; }
-    /* selecionado: claro sobre o escuro */
-    .btn.adicionado, .opcao input:checked + span, .pilula:has(input:checked) { background: var(--tinta); color: var(--branco); }
-    /* banners de produto: a foto tem fundo branco, entao fica numa placa clara dentro da faixa escura */
-    .destaque:not(.destaque-escuro) { background: #24211C; }
-    .destaque:not(.destaque-escuro) .destaque-foto { margin: 1.6rem 4.6rem 2.8rem 0; padding: 1rem; border-radius: 18px; background: var(--cor); }
-    .ponto::before { background: rgba(255, 255, 255, .3); }
-    .ponto[aria-current="true"]::before { background: var(--tinta); }
-    /* fotos de produto: sempre no branco */
-    .categoria span:first-child, .produto-foto, .ficha-foto, .lista li img { background: #fff; }
-    .categoria-todos span:first-child { background: var(--amarelo-claro); }
-    /* monte seu enxoval: faixa grafite, o amarelo vai para o que foi escolhido */
-    .enxoval { background: var(--palha-2); }
-    .passo legend b { background: var(--amarelo); color: #221F1A; }
-    @media (hover: hover) and (pointer: fine) { .cartela:hover { background: #4A4234; } }
-    .cartela:has(input:checked) { background: var(--amarelo); color: #221F1A; }
-    .cartela:has(input:checked) small { color: #4A4130; }
-    .lista-botoes .btn:not(.btn-linha) { background: var(--amarelo); color: #221F1A; }
-    .lista-botoes .btn:not(.btn-linha):hover { background: var(--amarelo-2); }
-    /* mapa do Google no escuro; o fundo branco invertido fica escuro enquanto o mapa carrega */
-    .chegar-mapa { background: #fff; filter: invert(.9) hue-rotate(180deg); }
-    .ficha, .sacola { box-shadow: 0 0 0 1px var(--linha); }
-    .ficha::backdrop, .sacola::backdrop { background: rgba(0, 0, 0, .7); }
-    .previa { background: #005C4B; color: #E9EDEF; }
-    .sacola-pe .erro { color: #FF8A80; }
-    .status.pago { color: #5FD38D; }
-    .status.pago .pulso { background: #5FD38D; }
-    .aprovado circle { fill: #173D27; }
-    .aprovado path { stroke: #5FD38D; }
-  }
-  @media (prefers-color-scheme: dark) and (max-width: 760px) {
-    /* largura fixa: com aspect-ratio a margem lateral nao encolhe a placa */
-    .destaque:not(.destaque-escuro) .destaque-foto { justify-self: center; width: calc(100% - 7.2rem); margin: .9rem 0 0; padding: .6rem; }
-  }
 </style>
 <script>document.documentElement.classList.add("com-js");</script>
 </head>
