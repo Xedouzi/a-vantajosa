@@ -62,7 +62,7 @@
 
     --fonte: "Figtree", "Figtree reserva", Arial, sans-serif;
     --fonte-titulo: "Gabarito", "Gabarito reserva", "Arial Black", Arial, sans-serif;
-    --largura: 1240px;
+    --largura: 1440px;
     --margem: clamp(16px, 4vw, 40px);
   }
   @font-face { font-family: "Figtree reserva"; src: local("Arial"); size-adjust: 97%; }
@@ -124,7 +124,7 @@
   .menu { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 1.4rem; align-items: center; margin-left: auto; }
   .menu a { color: var(--tinta); text-decoration: none; padding: .55rem 0; white-space: nowrap; font-weight: 500; font-size: .98rem; }
   .menu a:hover { color: var(--ouro); text-decoration: underline; }
-  .sacola-botao { position: relative; display: inline-flex; align-items: center; gap: .45rem; flex: none; min-height: 48px; padding: .45rem 1rem; border: 0; border-radius: 12px; background: var(--amarelo); color: var(--tinta); font: 650 1rem/1 var(--fonte); cursor: pointer; transition: background-color var(--dur-ui) ease; }
+  .sacola-botao { position: relative; display: inline-flex; white-space: nowrap; align-items: center; gap: .45rem; flex: none; min-height: 48px; padding: .45rem 1rem; border: 0; border-radius: 12px; background: var(--amarelo); color: var(--tinta); font: 650 1rem/1 var(--fonte); cursor: pointer; transition: background-color var(--dur-ui) ease; }
   .sacola-botao:hover { background: var(--amarelo-2); }
   .sacola-botao svg { width: 22px; height: 22px; }
   .sacola-botao .conta { display: inline-grid; place-items: center; min-width: 1.55rem; height: 1.55rem; padding: 0 .35rem; border-radius: 999px; background: var(--tinta); color: #fff; font-size: .82rem; }
@@ -167,17 +167,15 @@
   .destaque { scroll-snap-align: start; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; min-height: clamp(360px, 44vw, 460px); background: var(--cor); overflow: hidden; }
   .destaque-texto { position: relative; z-index: 1; display: grid; justify-items: start; align-content: center; gap: .9rem; padding: clamp(1.8rem, 4vw, 3rem) 1rem clamp(3.4rem, 5vw, 3.6rem) clamp(4.2rem, 7vw, 5.5rem); min-width: 0; }
   .destaque-texto > * { max-width: 100%; }
-  .destaque-chapeu { color: var(--ouro); font-weight: 650; font-size: .98rem; }
   .destaque h2 { font-size: clamp(2rem, 1.2rem + 2.6vw, 3.4rem); line-height: .98; max-width: 10em; }
-  .destaque-texto > p:not(.destaque-chapeu) { max-width: 27rem; color: var(--tinta-2); font-size: 1.05rem; line-height: 1.5; }
+  .destaque-texto > p { max-width: 27rem; color: var(--tinta-2); font-size: 1.05rem; line-height: 1.5; }
   .destaque-foto { align-self: stretch; display: grid; place-items: center; padding: 1rem clamp(3.6rem, 6vw, 5rem) 1rem 0; min-width: 0; }
   /* fotos de produto tem fundo branco: multiply deixa o fundo da cor do banner */
   .destaque-foto img { display: block; width: 100%; max-width: 560px; height: auto; mix-blend-mode: multiply; }
   /* o ultimo banner e a propria loja: agua funda com a fachada de verdade */
   .destaque-escuro { color: #fff; }
   .destaque-escuro h2 { color: #fff; }
-  .destaque-escuro .destaque-chapeu { color: var(--amarelo); }
-  .destaque-escuro .destaque-texto > p:not(.destaque-chapeu) { color: #E6DFD2; }
+  .destaque-escuro .destaque-texto > p { color: #E6DFD2; }
   .destaque-escuro .destaque-foto { padding: 0; }
   .destaque-escuro .destaque-foto img { max-width: none; height: 100%; object-fit: cover; object-position: 50% 30%; mix-blend-mode: normal; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%); mask-image: linear-gradient(90deg, transparent, #000 22%); }
   .destaques .seta { position: absolute; top: 50%; translate: 0 -50%; z-index: 2; box-shadow: 0 6px 18px -8px rgba(42, 38, 32, .5); }
@@ -190,8 +188,8 @@
   .seta svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
   .pontos { display: flex; gap: 0; }
   .ponto { width: 36px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
-  .ponto::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: rgba(18, 35, 58, .25); transition: width var(--dur-ui) var(--ease-out), background-color var(--dur-ui) ease; }
-  .ponto[aria-current="true"]::before { width: 26px; background: var(--tinta); }
+  .ponto::before { content: ""; width: 26px; height: 10px; border-radius: 999px; background: rgba(42, 38, 32, .28); transform: scaleX(.385); transition: transform var(--dur-ui) var(--ease-out), background-color var(--dur-ui) ease; }
+  .ponto[aria-current="true"]::before { transform: none; background: var(--tinta); }
   .no-escuro .ponto::before { background: rgba(255, 255, 255, .4); }
   .no-escuro .ponto[aria-current="true"]::before { background: #fff; }
   @media (max-width: 760px) {
@@ -249,7 +247,7 @@
   .ver-tudo { min-height: 44px; padding: 0; border: 0; background: none; color: var(--ouro); font: 600 1rem/1.2 var(--fonte); text-decoration: underline; text-underline-offset: .18em; cursor: pointer; }
   .prateleira-setas { display: flex; gap: .4rem; }
   .prateleira-setas .seta { box-shadow: inset 0 0 0 1px var(--linha); }
-  .prateleira-setas .seta:disabled { opacity: .35; cursor: default; }
+  .prateleira-setas .seta:disabled { background: var(--palha); color: var(--linha-forte); box-shadow: none; cursor: default; }
   .fileira { --col: 5; --vao: 1.1rem; position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - (var(--col) - 1) * var(--vao)) / var(--col)); gap: var(--vao); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 0; margin: 0; list-style: none; }
   .fileira::-webkit-scrollbar { display: none; }
   .fileira > li { scroll-snap-align: start; }
@@ -270,21 +268,46 @@
   .selo { position: absolute; left: .7rem; top: .7rem; padding: .25rem .65rem; border-radius: 999px; background: var(--amarelo); color: var(--tinta); font-size: .8rem; font-weight: 650; }
   .produto-info { display: flex; flex-direction: column; gap: .35rem; min-width: 0; padding: .85rem .9rem .95rem; }
   .produto-marca { color: var(--ouro); font-size: .86rem; font-weight: 650; }
-  .produto h4 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.3; }
-  .produto h4, .produto-desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; min-height: 2lh; }
+  .produto-nome { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.3; }
+  .produto-nome, .produto-desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; min-height: 2lh; }
   .produto-desc { color: var(--tinta-2); font-size: .9rem; line-height: 1.45; }
-  .produto h4 a { color: inherit; text-decoration: none; }
-  @media (hover: hover) and (pointer: fine) { .produto h4 a:hover { text-decoration: underline; text-underline-offset: 3px; } }
+  .produto-nome a { color: inherit; text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .produto-nome a:hover { text-decoration: underline; text-underline-offset: 3px; } }
   .produto-preco { font-weight: 700; font-size: 1.15rem; }
   .produto-preco small { font-size: .8rem; font-weight: 500; color: var(--tinta-2); }
   .produto .btn { width: 100%; min-height: 46px; padding-inline: .8rem; margin-top: auto; }
   .btn.adicionado { background: var(--grafite); color: #fff; }
-  .procura { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .4rem 1.5rem; margin-top: clamp(3rem, 2rem + 3vw, 4.5rem); padding: 1.4rem 1.6rem; border-radius: var(--raio); background: var(--branco); box-shadow: 0 0 0 1px var(--linha); }
-  .procura h3 { font-size: 1.4rem; }
-  .procura p { color: var(--tinta-2); }
-  .procura .btn { grid-column: 2; grid-row: 1 / span 2; }
-  @media (max-width: 640px) { .procura { grid-template-columns: minmax(0, 1fr); } .procura .btn { grid-column: auto; grid-row: auto; justify-self: start; margin-top: .4rem; } }
-  @media (max-width: 560px) { .produto-desc { display: none; } .produto-info { padding: .7rem .7rem .8rem; } .produto h4 { font-size: .95rem; } }
+  /* etiqueta do fim da fileira: o tamanho de um cartao no celular, o resto da fileira no computador */
+  .fim { position: relative; display: grid; grid-template-rows: auto 1fr; overflow: hidden; min-width: 0; border-radius: var(--raio); scroll-snap-align: start; }
+  .fim-texto { display: flex; flex-direction: column; gap: .5rem; min-width: 0; padding: 1.1rem 1.1rem 1.2rem; font-size: .93rem; line-height: 1.45; }
+  .fim-titulo { font-family: var(--fonte-titulo); font-size: 1.4rem; font-weight: 750; line-height: 1.05; letter-spacing: -.02em; overflow-wrap: normal; }
+  .fim .btn { align-self: stretch; min-height: 46px; margin-top: auto; padding-inline: .8rem; overflow-wrap: normal; }
+  .fim-extra { display: none; }
+  .btn-grafite { background: var(--grafite); color: #fff; }
+  .btn-grafite:hover { background: var(--grafite-2); }
+  /* enxoval: amarelo do logo com a costura por dentro */
+  .fim-enxoval { background: var(--amarelo); outline: 2px dashed rgba(42, 38, 32, .45); outline-offset: -8px; }
+  .fim-enxoval .fim-texto { color: var(--tinta); }
+  .fim-fotos { display: flex; justify-content: center; gap: .5rem; padding: 1.2rem 1.1rem 0; }
+  .fim-fotos img { width: 23%; max-width: 92px; aspect-ratio: 1; border-radius: 12px; background: #fff; object-fit: contain; }
+  /* a loja: a foto do corredor e o grafite do rodape */
+  .fim-loja { background: var(--grafite); color: #E6DFD2; }
+  .fim-loja .fim-titulo { color: #fff; }
+  .fim-foto { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+  @media (min-width: 1101px) {
+    .fileira .fim[data-falta] { grid-column: span 2; grid-template-rows: none; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+    .fileira .fim[data-falta="2"] { grid-column: span 3; }
+    .fileira .fim[data-falta] .fim-texto { justify-content: center; padding: 1.6rem 1.6rem 1.7rem; }
+    .fileira .fim[data-falta] .fim-titulo { font-size: 1.75rem; }
+    .fileira .fim[data-falta] .btn { align-self: start; margin-top: .5rem; }
+    .fileira .fim-enxoval[data-falta] .fim-fotos { order: 2; flex-wrap: wrap; align-content: center; padding: 1.4rem 1.6rem 1.4rem 0; }
+    .fileira .fim-enxoval[data-falta] .fim-fotos img { width: calc(50% - .25rem); max-width: 128px; }
+    .fileira .fim-loja[data-falta] .fim-foto { order: 2; aspect-ratio: auto; height: 100%; }
+    #vitrine:not(.filtrada) .fim[data-falta] .fim-extra { display: inline; }
+  }
+  .filtrada .fim { grid-column: auto !important; grid-template-columns: none !important; }
+  @media (max-width: 560px) { .fim-titulo { font-size: 1.2rem; } .fim-texto { padding: .9rem .9rem 1rem; } } 
+  @media (max-width: 560px) { .produto-desc { display: none; } .produto-info { padding: .7rem .7rem .8rem; } .produto-nome { font-size: .95rem; } }
 
   /* ---------- monte seu enxoval: a faixa amarela, com a lista costurada ---------- */
   .enxoval { background: var(--amarelo); color: var(--tinta); padding-block: clamp(3rem, 7vw, 5.5rem); }
@@ -329,7 +352,7 @@
   .lista-botoes .btn { width: 100%; }
   .lista-botoes .btn:not(.btn-linha) { background: var(--grafite); color: #fff; }
   .lista-botoes .btn:not(.btn-linha):hover { background: #000; }
-  .lista-status { font-size: .95rem; }
+  .lista-status { font-size: .95rem; font-variant-numeric: tabular-nums; }
   .lista-status:empty { display: none; }
   .lista-nota { color: var(--tinta-2); font-size: .88rem; }
   @media (max-width: 900px) { .enxoval-grade { grid-template-columns: minmax(0, 1fr); } }
@@ -341,14 +364,29 @@
   .loja-fotos img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--raio); }
   .loja-fotos figure:last-child { margin-top: clamp(1.5rem, 4vw, 3rem); }
   .loja-texto { display: grid; grid-template-columns: minmax(0, 1fr); gap: .9rem; }
-  .loja-texto > p:not(.nota-google) { font-size: 1.1rem; color: var(--tinta-2); max-width: 36rem; }
-  .nota-google { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .7rem; margin-top: .3rem; }
-  .nota-google strong { font-family: var(--fonte-titulo); font-size: 2.4rem; font-weight: 800; line-height: 1; color: var(--ouro); }
-  .avaliacoes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
-  .avaliacao { display: flex; flex-direction: column; padding: .95rem 1rem; border-radius: var(--raio); background: var(--palha); }
-  .avaliacao p { font-size: .95rem; line-height: 1.4; font-weight: 500; }
-  .avaliacao footer { margin-top: auto; padding-top: .5rem; color: var(--tinta-2); font-size: .82rem; }
-  @media (max-width: 1080px) { .avaliacoes { grid-template-columns: minmax(0, 1fr); } }
+  .loja-texto > p { font-size: 1.1rem; color: var(--tinta-2); max-width: 36rem; }
+  /* avaliacoes no Google: a nota numa etiqueta de palha costurada e tres avaliacoes com nome e data, como no Google */
+  .google { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 1.1rem; margin-top: clamp(3rem, 6vw, 4.5rem); scroll-margin-top: 100px; }
+  .google-nota { display: grid; justify-items: start; align-content: start; gap: .5rem; padding: 1.7rem 1.6rem; border-radius: 20px; background: var(--palha); outline: 2px dashed var(--amarelo-2); outline-offset: -9px; }
+  .google-marca { display: inline-flex; align-items: center; gap: .5rem; color: var(--tinta-2); font-size: .95rem; font-weight: 500; }
+  .g-logo { width: 20px; height: 20px; flex: none; }
+  .google-numero { margin-top: .3rem; font-family: var(--fonte-titulo); font-size: 4.2rem; font-weight: 800; line-height: .9; color: var(--ouro); font-variant-numeric: tabular-nums; }
+  .google-nota .estrelas { font-size: 1.25rem; }
+  .google-texto { color: var(--tinta-2); }
+  .google-nota .btn { margin-top: .6rem; min-height: 48px; }
+  .estrelas { display: inline-flex; gap: 1px; color: #E8A100; }
+  .estrelas svg { width: 1.05em; height: 1.05em; fill: currentColor; }
+  .depoimentos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; margin: 0; padding: 0; list-style: none; }
+  .depoimentos li { display: flex; flex-direction: column; gap: .75rem; min-width: 0; padding: 1.35rem 1.4rem 1.5rem; border-radius: 20px; background: var(--branco); box-shadow: 0 0 0 1px var(--linha); }
+  .dep-autor { display: grid; grid-template-columns: 40px minmax(0, 1fr) 18px; align-items: center; gap: .75rem; }
+  .dep-avatar { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--av); color: #fff; font-size: 1.05rem; font-weight: 600; }
+  .dep-autor p { min-width: 0; line-height: 1.3; }
+  .dep-autor strong { display: block; font-weight: 600; }
+  .dep-autor p span { color: var(--tinta-2); font-size: .86rem; }
+  .dep-autor .g-logo { width: 18px; height: 18px; align-self: start; }
+  .depoimentos blockquote { margin: 0; font-size: 1.02rem; line-height: 1.55; }
+  @media (max-width: 1100px) { .google { grid-template-columns: minmax(0, 1fr); } .google-nota { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 1.2rem; } .google-marca, .google-nota .btn { grid-column: 1 / -1; } .google-numero { grid-row: span 2; margin: 0; } }
+  @media (max-width: 860px) { .depoimentos { grid-template-columns: minmax(0, 1fr); } }
   @media (max-width: 860px) { .loja-grade { grid-template-columns: minmax(0, 1fr); } .loja-fotos { max-width: 560px; } }
 
   /* ---------- como chegar ---------- */
@@ -375,23 +413,6 @@
   @media (hover: hover) and (pointer: fine) { .redes a:hover { background: var(--amarelo); color: var(--tinta); } }
   @media (max-width: 700px) { .rodape-grade { flex-direction: column; align-items: flex-start; gap: .6rem; } }
 
-  /* ---------- pagina do produto: abre por cima da vitrine e tem endereco proprio (#produto-id) ---------- */
-  .ficha {
-    position: fixed; width: min(100% - 2rem, 980px); max-width: none; max-height: min(92dvh, 740px); margin: auto; padding: 0; border: 0;
-    border-radius: 22px; background: var(--branco); color: var(--tinta); overflow: auto; overscroll-behavior: contain;
-    opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .28s var(--ease-out), transform .28s var(--ease-out);
-  }
-  .ficha[open] { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
-  .ficha.aberta { opacity: 1; transform: none; }
-  .ficha::backdrop { background: rgba(42, 38, 32, .55); opacity: 0; transition: opacity .28s ease; }
-  .ficha.aberta::backdrop { opacity: 1; }
-  .ficha > .fechar { position: absolute; top: .8rem; right: .8rem; z-index: 2; }
-  .ficha-foto { position: relative; align-self: start; aspect-ratio: 1; border-right: 1px solid var(--linha); }
-  .ficha-foto img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .ficha-info { display: flex; flex-direction: column; gap: .85rem; min-width: 0; padding: clamp(1.4rem, 3vw, 2.4rem); }
-  .ficha-info h2 { padding-right: 2.6rem; font-size: clamp(1.45rem, 1.2rem + .9vw, 1.9rem); line-height: 1.12; }
-  .ficha-preco { font-size: 1.6rem; font-weight: 700; }
-  .ficha-desc { color: var(--tinta-2); }
   .variacao { min-width: 0; margin: .2rem 0 0; padding: 0; border: 0; }
   .variacao legend { padding: 0; margin-bottom: .45rem; color: var(--tinta-2); font-size: .95rem; }
   .variacao legend strong { color: var(--tinta); font-weight: 600; }
@@ -402,19 +423,96 @@
   @media (hover: hover) and (pointer: fine) { .opcao:hover span { box-shadow: inset 0 0 0 1.5px var(--linha-forte); } }
   .opcao input:checked + span { background: var(--grafite); color: #fff; box-shadow: none; }
   .opcao input:focus-visible + span { outline: 3px solid var(--ouro); outline-offset: 3px; }
-  .ficha-add { width: 100%; min-height: 52px; margin-top: .3rem; }
-  .ficha-status { min-height: 1.5em; margin-top: -.3rem; font-size: .95rem; }
-  .ficha-status:empty { display: none; }
   .ver-sacola { padding: 0; border: 0; background: none; color: var(--ouro); font: 600 .95rem/1.5 var(--fonte); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-  .ficha-entrega { display: grid; gap: .35rem; margin: .3rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--linha); color: var(--tinta-2); font-size: .92rem; list-style: none; }
-  .ficha-entrega li { display: flex; gap: .55rem; }
-  .ficha-entrega li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .55em; border-radius: 50%; background: var(--ouro); }
-  @media (max-width: 760px) {
-    .ficha { width: 100%; max-height: 94dvh; margin: auto 0 0; border-radius: 22px 22px 0 0; transform: translateY(40px); }
-    .ficha[open] { grid-template-columns: minmax(0, 1fr); }
-    .ficha-foto { aspect-ratio: 4 / 3; border-right: 0; border-bottom: 1px solid var(--linha); }
+  /* ---------- pagina do produto: endereco proprio (?produto=id); a vitrine sai e a pagina entra ---------- */
+  .pp { padding-block: clamp(.6rem, 2vw, 1.2rem) 0; }
+  .trilha ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .55rem; margin: 0 0 clamp(.4rem, 1.5vw, 1rem); padding: 0; list-style: none; color: var(--tinta-2); font-size: .92rem; }
+  .trilha li { display: inline-flex; align-items: center; gap: .55rem; min-width: 0; }
+  .trilha li + li::before { content: ""; flex: none; width: 6px; height: 6px; border: solid var(--linha-forte); border-width: 1.5px 1.5px 0 0; transform: rotate(45deg); }
+  .trilha a { display: inline-flex; align-items: center; min-height: 44px; color: var(--tinta-2); text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .trilha a:hover { color: var(--ouro); text-decoration: underline; } }
+  .trilha [aria-current] { color: var(--tinta); font-weight: 600; }
+  .pp-grade { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+  .pp-galeria { position: sticky; top: 92px; min-width: 0; }
+  /* a foto fica solta no branco, com a costura da casa em volta */
+  .pp-foto { position: relative; margin: 0; overflow: hidden; aspect-ratio: 1; border-radius: 22px; background: var(--branco); box-shadow: 0 0 0 1px var(--linha); }
+  .pp-foto img { display: block; width: 100%; height: 100%; object-fit: contain; background-color: var(--palha); transform-origin: var(--zx, 50%) var(--zy, 50%); transition: transform .3s var(--ease-out); }
+  .pp-foto img[src] { background-color: transparent; }
+  @media (hover: hover) and (pointer: fine) { .pp-foto { cursor: zoom-in; } .pp-foto.zoom img { transform: scale(2.1); } }
+  .pp-foto .selo { left: 1rem; top: 1rem; z-index: 1; }
+  .pp-cores { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem; }
+  .pp-cores button { width: 68px; height: 68px; padding: 4px; border: 2px solid transparent; border-radius: 14px; background: var(--branco); box-shadow: 0 0 0 1px var(--linha); cursor: pointer; transition: border-color var(--dur-ui) ease, transform .12s var(--ease-out); }
+  .pp-cores button:active { transform: scale(.96); }
+  .pp-cores button[aria-pressed="true"] { border: 2px dashed var(--tinta); box-shadow: none; }
+  .pp-cores img { display: block; width: 100%; height: 100%; border-radius: 9px; object-fit: contain; }
+  .pp-info { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+  .pp-info .produto-marca { font-size: .95rem; }
+  .pp-info h1 { margin-top: -.55rem; font-size: clamp(1.8rem, 1.25rem + 1.6vw, 2.6rem); line-height: 1.04; overflow-wrap: break-word; }
+  .pp-info h1:focus { outline: 0; }
+  .pp-nota { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .1rem .5rem; align-self: start; min-height: 44px; margin-top: -.6rem; color: var(--tinta-2); font-size: .95rem; text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .pp-nota:hover { color: var(--tinta); text-decoration: underline; text-underline-offset: 3px; } }
+  .pp-preco { display: grid; grid-template-columns: minmax(0, 1fr); gap: .2rem; padding-top: .9rem; border-top: 2px dashed var(--linha); }
+  .pp-preco strong { font-family: var(--fonte-titulo); font-size: clamp(2.1rem, 1.7rem + 1.1vw, 2.7rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .pp-preco span { color: var(--tinta-2); }
+  .pp-desc { color: var(--tinta-2); }
+  .pp-compra { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .6rem; margin-top: .2rem; }
+  .pp-compra .qtd { min-height: 54px; }
+  .pp-compra .btn { min-height: 54px; }
+  .pp-compra .btn-linha { grid-column: 1 / -1; }
+  .pp-compra .btn:disabled, .pp-barra .btn:disabled { background: var(--palha); color: var(--tinta-2); box-shadow: inset 0 0 0 1px var(--linha); cursor: not-allowed; }
+  .pp-status { font-variant-numeric: tabular-nums; min-height: 1.5em; margin-top: -.4rem; font-size: .95rem; }
+  .pp-status:empty { display: none; }
+  /* receber e pagar: uma etiqueta de palha costurada, como a barra de uma toalha */
+  .pp-receber { display: grid; gap: .85rem; margin-top: .4rem; padding: 1.4rem 1.45rem 1.5rem; border-radius: 20px; background: var(--palha); outline: 2px dashed var(--amarelo-2); outline-offset: -9px; }
+  .pp-receber h2 { font-size: 1.3rem; }
+  .pp-cep { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem; }
+  .pp-cep input { width: 100%; min-width: 0; min-height: 50px; padding: .5rem .95rem; border: 0; border-radius: 12px; background: #fff; box-shadow: inset 0 0 0 1px var(--linha-forte); color: var(--tinta); font: 400 1rem/1.2 var(--fonte); }
+  .pp-cep .btn { min-height: 50px; }
+  .pp-cep-res { margin-top: -.2rem; padding: .75rem .9rem; border-radius: 12px; background: var(--branco); font-size: .95rem; }
+  .pp-cep-res:empty { display: none; }
+  .pp-modos { display: grid; gap: .7rem; margin: 0; padding: .3rem 0 0; list-style: none; color: var(--tinta-2); font-size: .95rem; line-height: 1.4; }
+  .pp-modos li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: .75rem; align-items: start; }
+  .pp-modos svg { width: 28px; height: 28px; fill: none; stroke: var(--ouro); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .pp-modos strong { display: block; color: var(--tinta); font-weight: 600; }
+  .pp-zap { display: inline-flex; align-items: center; gap: .5rem; align-self: start; min-height: 44px; color: var(--tinta); font-weight: 600; text-underline-offset: 3px; }
+  .pp-zap svg { width: 22px; height: 22px; flex: none; color: #12803B; }
+  /* descricao, medidas e detalhes em acordeao */
+  .pp-sobre { max-width: 54rem; margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--linha); }
+  .pp-sobre details { border-bottom: 1px solid var(--linha); }
+  .pp-sobre summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 64px; cursor: pointer; list-style: none; font: 750 1.25rem/1.2 var(--fonte-titulo); letter-spacing: -.01em; }
+  .pp-sobre summary::-webkit-details-marker { display: none; }
+  .pp-sobre summary::after { content: ""; flex: none; width: 10px; height: 10px; margin-right: .3rem; border: solid var(--ouro); border-width: 0 2.5px 2.5px 0; transform: translateY(-3px) rotate(45deg); transition: transform var(--dur-ui) var(--ease-out); }
+  .pp-sobre details[open] summary::after { transform: translateY(2px) rotate(225deg); }
+  .pp-sobre details > div { display: grid; gap: .7rem; padding-bottom: 1.5rem; color: var(--tinta-2); }
+  .pp-detalhes { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .45rem 1.75rem; margin: 0; }
+  .pp-detalhes dt { color: var(--tinta); font-weight: 600; }
+  .pp-detalhes dd { margin: 0; }
+  .pp-medidas { width: 100%; max-width: 34rem; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .pp-medidas th, .pp-medidas td { padding: .6rem .8rem .6rem 0; border-bottom: 1px dashed var(--linha); text-align: left; overflow-wrap: anywhere; }
+  .pp-medidas th { color: var(--tinta); font-weight: 600; }
+  .pp-medidas tr.atual td, .pp-medidas tr.atual th { color: var(--tinta); font-weight: 700; }
+  .pp > .faixa-costura { margin-top: clamp(3rem, 6vw, 5rem); }
+  .pp-mais { padding-block: clamp(2.2rem, 5vw, 3.5rem) clamp(3.5rem, 7vw, 5.5rem); }
+  .pp-mais .prateleira-topo h2 { margin-right: auto; font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.1rem); }
+  .pp-barra { display: none; }
+  @media (max-width: 860px) {
+    .pp-grade { grid-template-columns: minmax(0, 1fr); }
+    .pp-galeria { position: static; }
+    .pp-foto { border-radius: var(--raio); }
+    .pp-cores button { width: 58px; height: 58px; }
+    .trilha li:last-child { display: none; } /* o nome ja vem logo abaixo da foto */
+    .pp-barra {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; display: flex; align-items: center; gap: .9rem;
+      padding: .7rem var(--margem) calc(.7rem + env(safe-area-inset-bottom)); background: var(--branco); border-top: 1px solid var(--linha);
+      box-shadow: 0 -12px 28px -20px rgba(42, 38, 32, .5); transform: translateY(105%); transition: transform .3s var(--ease-out);
+    }
+    .pp-barra.visivel { transform: none; }
+    .pp-barra strong { font-family: var(--fonte-titulo); font-size: 1.35rem; font-weight: 800; white-space: nowrap; }
+    .pp-barra .btn { flex: 1; min-width: 0; min-height: 50px; padding-inline: .8rem; }
+    .pp-mais { padding-bottom: 6rem; }
   }
-  @media (prefers-reduced-motion: reduce) { .ficha { transform: none; transition: opacity .2s ease; } }
+  @media (max-width: 420px) { .pp-cep { grid-template-columns: minmax(0, 1fr); } .pp-detalhes { grid-template-columns: minmax(0, 1fr); row-gap: .15rem; } .pp-detalhes dd + dt { margin-top: .5rem; } }
+  @media (prefers-reduced-motion: reduce) { .pp-barra, .pp-foto img, .pp-sobre summary::after { transition: none; } }
   html:has(dialog[open]) { overflow: hidden; }
 
   /* ---------- carrinho: gaveta que entra pela direita ---------- */
@@ -519,12 +617,12 @@
   .flutuante {
     display: grid; place-items: center; position: fixed; z-index: 25;
     right: max(clamp(16px, 2vw, 28px), env(safe-area-inset-right)); bottom: calc(clamp(16px, 2vw, 28px) + env(safe-area-inset-bottom));
-    width: 62px; height: 62px; border-radius: 50%; background: #179A48; color: #fff;
-    box-shadow: 0 10px 28px -10px rgba(23, 154, 72, .7), 0 2px 6px rgba(42, 38, 32, .2);
+    width: 62px; height: 62px; border-radius: 50%; background: #12803B; color: #fff;
+    box-shadow: 0 10px 28px -10px rgba(18, 128, 59, .7), 0 2px 6px rgba(42, 38, 32, .2);
     opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s var(--ease-out), transform .25s var(--ease-out), background-color .2s;
   }
   .flutuante.visivel { opacity: 1; transform: none; pointer-events: auto; }
-  .flutuante:hover { background: #12803B; }
+  .flutuante:hover { background: #0E6A31; }
   .flutuante svg { width: 30px; height: 30px; }
   @media (max-width: 600px) { .flutuante { width: 56px; height: 56px; } .flutuante svg { width: 27px; height: 27px; } }
   @media (prefers-reduced-motion: reduce) { .flutuante { transition: none; transform: none; } }
@@ -604,6 +702,7 @@
   <symbol id="i-sacola" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M3 4h2.2l2.3 11h10.2l2-8H6.3M9.5 19.5a1 1 0 1 0 0 .01M16.5 19.5a1 1 0 1 0 0 .01"/></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9Z"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
   <symbol id="i-toalha" viewBox="0 0 80 64"><rect x="6" y="30" width="68" height="26" rx="6" fill="#FFF1BF"/><rect x="12" y="10" width="56" height="24" rx="6" fill="#FFCC1F"/><path d="M12 22h56M6 43h68" stroke="#2A2620" stroke-width="2" stroke-dasharray="4 4"/></symbol>
@@ -612,8 +711,8 @@
 
 <header class="topo">
   <div class="envoltorio topo-grade">
-    <a class="marca" href="#" translate="no" aria-label="A Vantajosa, início">
-      <img src="img/logo.png" width="240" height="240" alt="">
+    <a class="marca" href="#" translate="no">
+      <img src="img/logo.webp" width="240" height="240" alt="">
       <span><strong>A Vantajosa</strong><small>A loja da família</small></span>
     </a>
     <nav class="menu" id="menu" aria-label="Principal">
@@ -632,20 +731,18 @@
 
 <section class="destaques-secao" aria-labelledby="titulo">
     <h1 class="so-leitor" id="titulo">A Vantajosa: cama, mesa e banho em Cravinhos</h1>
-    <div class="destaques" id="destaques-caixa" aria-roledescription="carrossel" aria-label="Destaques da loja">
+    <div class="destaques" id="destaques-caixa" role="region" aria-roledescription="carrossel" aria-label="Destaques da loja">
       <ul class="destaques-trilho" id="destaques">
         <li class="destaque" style="--cor:#ECF1E6" aria-roledescription="destaque" aria-label="1 de 3">
           <div class="destaque-texto">
-            <p class="destaque-chapeu">Cama</p>
             <h2>Jogos de cama do solteiro ao king</h2>
-            <p>Escolha a cor e o tamanho da sua cama na página de cada produto.</p>
+            <p>Do solteiro ao king, na cor que combina com o seu quarto.</p>
             <button class="btn" type="button" data-ir="cama">Ver a linha de cama</button>
           </div>
           <div class="destaque-foto"><img src="img/banner-cama.webp" width="1200" height="1000" alt="Jogos de cama Tesso nas cores verde e bege e edredom Blend Sense"></div>
         </li>
         <li class="destaque" style="--cor:#E8EEF5" aria-roledescription="destaque" aria-label="2 de 3">
           <div class="destaque-texto">
-            <p class="destaque-chapeu">Banho</p>
             <h2>Toalhas para a casa toda</h2>
             <p>Jogos de banho e rosto, toalha banhão e piso, em várias cores.</p>
             <button class="btn" type="button" data-ir="banho">Ver as toalhas</button>
@@ -654,9 +751,8 @@
         </li>
         <li class="destaque destaque-escuro" style="--cor:#2A2620" aria-roledescription="destaque" aria-label="3 de 3">
           <div class="destaque-texto">
-            <p class="destaque-chapeu">Av. Pedro Duarte Amoroso, 846</p>
             <h2>Retire na loja ou receba em casa</h2>
-            <p>Compre pelo site e retire na loja ou receba em Cravinhos. Pague no Pix, no cartão ou em dinheiro na retirada.</p>
+            <p>Retire na Av. Pedro Duarte Amoroso, 846, ou receba em Cravinhos.</p>
             <a class="btn" href="#chegar">Como chegar</a>
           </div>
           <div class="destaque-foto"><img src="img/fachada.webp" width="1400" height="1050" alt="Entrada da A Vantajosa, com a faixa amarela e os edredons na porta" loading="lazy"></div>
@@ -686,7 +782,6 @@
       </div>
       <div class="categorias" id="categorias" role="group" aria-label="Filtrar por categoria" data-revela></div>
       <ul class="vitrine" id="vitrine" aria-label="Produtos"></ul>
-      <div class="procura" data-revela><h3>Não encontrou o que procura?</h3><p>Temos utilidades, roupas e brinquedos na loja. Consulte a nossa equipe pelo WhatsApp.</p><a class="btn btn-zap" id="procura" href="https://wa.me/551639515584" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-zap"/></svg>Consultar pelo WhatsApp</a></div>
     </div>
   </section>
 
@@ -724,13 +819,33 @@
       <div class="loja-texto" data-revela style="--i:1">
         <h2 id="titulo-loja">A loja da família</h2>
         <p>Tudo o que você precisa em um só lugar: cama, mesa e banho, utilidades, roupas e brinquedos, na Avenida Pedro Duarte Amoroso.</p>
-        <p class="nota-google"><strong>4,7</strong><span>no Google, com 98 avaliações</span></p>
-        <div class="avaliacoes">
-          <blockquote class="avaliacao"><p>“Excelente loja, tudo que vc precisa na sua casa vc encontra lá.”</p><footer>Avaliação no Google</footer></blockquote>
-          <blockquote class="avaliacao"><p>“Ótimo atendimento, bom preço e variedades.”</p><footer>Avaliação no Google</footer></blockquote>
-          <blockquote class="avaliacao"><p>“Minha loja favorita da cidade!”</p><footer>Avaliação no Google</footer></blockquote>
-        </div>
       </div>
+    </div>
+    <div class="envoltorio google" id="avaliacoes">
+      <div class="google-nota" data-revela>
+        <p class="google-marca"><svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8a10 10 0 0 1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.1z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7A22 22 0 0 0 24 46z"/><path fill="#FBBC05" d="M11.8 28.3a13.2 13.2 0 0 1 0-8.6v-5.7H4.5a22 22 0 0 0 0 20z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A22 22 0 0 0 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Avaliações no Google</p>
+        <p class="google-numero">4,7</p>
+        <span class="estrelas" role="img" aria-label="Nota 4,7 de 5"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span>
+        <p class="google-texto">98 avaliações de clientes da loja</p>
+        <a class="btn btn-linha" href="https://www.google.com/maps?cid=4678519379120039707" target="_blank" rel="noopener">Ver todas no Google</a>
+      </div>
+      <ul class="depoimentos" data-revela style="--i:1">
+          <li>
+            <div class="dep-autor"><span class="dep-avatar" style="--av:#1A73E8" aria-hidden="true">L</span><p><strong>Luis M.</strong><span>Local Guide · agosto de 2026</span></p><svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8a10 10 0 0 1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.1z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7A22 22 0 0 0 24 46z"/><path fill="#FBBC05" d="M11.8 28.3a13.2 13.2 0 0 1 0-8.6v-5.7H4.5a22 22 0 0 0 0 20z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A22 22 0 0 0 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg></div>
+            <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span>
+            <blockquote>“Atendimento super atencioso, gostamos muito. Além das melhorias aplicadas na loja.”</blockquote>
+          </li>
+          <li>
+            <div class="dep-autor"><span class="dep-avatar" style="--av:#C5221F" aria-hidden="true">M</span><p><strong>Marli da S. F.</strong><span>Local Guide · 2025</span></p><svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8a10 10 0 0 1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.1z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7A22 22 0 0 0 24 46z"/><path fill="#FBBC05" d="M11.8 28.3a13.2 13.2 0 0 1 0-8.6v-5.7H4.5a22 22 0 0 0 0 20z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A22 22 0 0 0 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg></div>
+            <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span>
+            <blockquote>“Excelente loja, tudo que vc precisa na sua casa vc encontra lá. Ótimos preços, uma qualidade no atendimento. Parabéns ao dono e funcionário.”</blockquote>
+          </li>
+          <li>
+            <div class="dep-autor"><span class="dep-avatar" style="--av:#0B8043" aria-hidden="true">A</span><p><strong>Aline R. F.</strong><span>Local Guide · 2022</span></p><svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8a10 10 0 0 1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.1z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7A22 22 0 0 0 24 46z"/><path fill="#FBBC05" d="M11.8 28.3a13.2 13.2 0 0 1 0-8.6v-5.7H4.5a22 22 0 0 0 0 20z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A22 22 0 0 0 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg></div>
+            <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span>
+            <blockquote>“Lugar muito bom para compras, parcelamento e condições perfeitas.”</blockquote>
+          </li>
+      </ul>
     </div>
   </section>
 
@@ -751,11 +866,12 @@
     </div>
   </section>
 </main>
+<main class="pp" id="pagina-produto" hidden></main>
 
 <footer class="rodape">
   <div class="envoltorio rodape-grade">
-    <a class="rodape-marca" href="#" translate="no" aria-label="A Vantajosa, voltar ao início">
-      <img src="img/logo.png" width="240" height="240" alt="">
+    <a class="rodape-marca" href="#" translate="no">
+      <img src="img/logo.webp" width="240" height="240" alt="">
       <span>A Vantajosa, a loja da família</span>
     </a>
     <p class="redes">
@@ -777,7 +893,6 @@
   <div class="sacola-pe" id="sacola-pe"></div>
 </dialog>
 
-<dialog class="ficha" id="ficha" aria-labelledby="ficha-nome"></dialog>
 
 <script>
 /* ============================================================
@@ -870,17 +985,17 @@ $("#categorias").innerHTML = [["todos", "Todos os produtos"], ...CATEGORIAS].map
 
 /* todos os cartoes tem o mesmo desenho; com escolha (cor, estampa, tamanho) o botao abre a pagina do produto */
 const precisaEscolher = (p) => p.vars.length > 1 || p.tams;
-const cartao = (p) => {
+const cartao = (p, nivel = 4) => {
   const va = p.vars[varInicial(p)];
   const botao = !p.vars.some(tem) ? `<button class="btn" type="button" disabled>Esgotado</button>`
     : precisaEscolher(p) ? `<button class="btn" type="button" data-abrir="${p.id}" aria-label="Adicionar: escolher ${p.vars.length > 1 ? `entre ${p.vars.length} ${PLURAL[p.rotulo]}` : "o tamanho"}"><svg aria-hidden="true"><use href="#i-sacola"/></svg>Adicionar</button>`
     : `<button class="btn" type="button" data-adicionar="${p.id}"><svg aria-hidden="true"><use href="#i-sacola"/></svg>Adicionar</button>`;
   return `
   <li class="produto">
-    <a class="produto-foto" href="#produto-${p.id}" data-abrir="${p.id}" tabindex="-1" aria-hidden="true"><img src="${fotoP(va.f)}" width="600" height="600" alt="" loading="lazy">${p.selo ? `<span class="selo">${p.selo}</span>` : ""}</a>
+    <a class="produto-foto" href="?produto=${p.id}" data-abrir="${p.id}" tabindex="-1" aria-hidden="true"><img src="${fotoP(va.f)}" width="600" height="600" alt="" loading="lazy">${p.selo ? `<span class="selo">${p.selo}</span>` : ""}</a>
     <div class="produto-info">
       <p class="produto-marca">${esc(p.marca)}</p>
-      <h4><a href="#produto-${p.id}" data-abrir="${p.id}">${esc(p.nome)}</a></h4>
+      <h${nivel} class="produto-nome"><a href="?produto=${p.id}" data-abrir="${p.id}">${esc(p.nome)}</a></h${nivel}>
       <p class="produto-desc">${esc(p.desc)}</p>
       <p class="produto-preco">${precoCartao(p)}</p>
       ${botao}
@@ -888,6 +1003,19 @@ const cartao = (p) => {
   </li>`;
 };
 
+/* as fileiras curtas terminam numa etiqueta: o enxoval montado ou o que a loja tem alem do site */
+const FIM = {
+  travesseiros: { classe: "fim-enxoval", titulo: "Monte seu enxoval", texto: "Informe o tamanho da cama e quantas pessoas moram na casa. Montamos a lista com jogo de cama, travesseiros e toalhas.",
+    fotos: ["tesso-fcd05b", "trav-aveludado-f13057", "wave-649b58", "hera-831990"], botao: `<a class="btn btn-grafite" href="#enxoval">Montar a lista</a>` },
+  cozinha: { classe: "fim-loja", titulo: "Utilidades, roupas e brinquedos", texto: "Na loja temos muito mais do que está no site. Consulte a nossa equipe antes de ir.",
+    botao: `<a class="btn btn-zap" href="${zap("Olá! Vim pelo site e gostaria de saber se vocês têm um produto.")}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-zap"/></svg>Consultar<span class="fim-extra">&nbsp;pelo WhatsApp</span></a>` },
+};
+const fimFileira = (id, n) => {
+  const c = FIM[id]; if (!c) return "";
+  const foto = c.fotos ? `<div class="fim-fotos" aria-hidden="true">${c.fotos.map((f) => `<img src="${fotoP(f)}" width="120" height="120" alt="" loading="lazy">`).join("")}</div>`
+    : `<img class="fim-foto" src="img/corredor.webp" width="1400" height="1050" alt="Corredor da loja com edredons, mochilas e brinquedos" loading="lazy">`;
+  return `<li class="fim ${c.classe}"${n < 4 ? ` data-falta="${4 - n}"` : ""}>${foto}<div class="fim-texto"><p class="fim-titulo">${c.titulo}</p><p>${c.texto}</p>${c.botao}</div></li>`;
+};
 $("#vitrine").innerHTML = CATEGORIAS.map(([id, nome]) => {
   const lista = PRODUTOS.filter((p) => p.cat === id);
   return `<li class="prateleira" data-cat="${id}">
@@ -899,10 +1027,9 @@ $("#vitrine").innerHTML = CATEGORIAS.map(([id, nome]) => {
         <button class="seta" type="button" data-passo="1" aria-label="Mais em ${nome}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
-    <ul class="fileira" aria-labelledby="fileira-${id}">${lista.map(cartao).join("")}</ul>
+    <ul class="fileira" aria-labelledby="fileira-${id}">${lista.map(cartao).join("")}${fimFileira(id, lista.length)}</ul>
   </li>`;
 }).join("");
-$("#procura").href = zap("Olá! Vim pelo site e gostaria de saber se vocês têm um produto.");
 
 function filtrar(cat) {
   document.querySelectorAll("[data-cat][aria-pressed]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
@@ -913,9 +1040,8 @@ function filtrar(cat) {
 }
 const rolar = (el, block = "start") => el.scrollIntoView({ behavior: reduzir.matches ? "auto" : "smooth", block });
 $("#categorias").addEventListener("click", (e) => { const b = e.target.closest("[data-cat]"); if (b) filtrar(b.dataset.cat); });
-document.querySelectorAll("[data-ir]").forEach((a) => a.addEventListener("click", () => { filtrar(a.dataset.ir); rolar($("#categorias")); }));
-/* botao do banner: abre o produto */
-document.querySelectorAll("[data-produto]").forEach((b) => b.addEventListener("click", () => abrirFicha(b.dataset.produto)));
+/* banners e trilha da pagina do produto filtram a vitrine (a trilha nasce depois, por isso o clique e no documento) */
+document.addEventListener("click", (e) => { const a = e.target.closest("[data-ir]"); if (a) { filtrar(a.dataset.ir); rolar($("#categorias")); } });
 $("#vitrine").addEventListener("click", (e) => {
   const ver = e.target.closest("[data-ver]");
   if (ver) { filtrar(ver.dataset.ver); rolar($("#categorias")); return; }
@@ -938,88 +1064,224 @@ addEventListener("resize", setas);
 setas();
 
 /* ---------- pagina do produto ---------- */
-const ficha = $("#ficha");
-let fichaP = null, fichaK = 0, fichaT = 0, fichaFecha;
-function escolhaFicha(p) {
+const TITULO = document.title;
+const pp = $("#pagina-produto");
+let ppP = null, ppK = 0, ppT = 0, ppQtd = 1;
+/* ?produto=tesso&cor=Verde&tamanho=queen */
+const chaveVar = (p) => (p.rotulo || "opcao").toLowerCase();
+const urlProduto = (p, k, t) => `?produto=${p.id}${p.vars.length > 1 ? `&${chaveVar(p)}=${encodeURIComponent(p.vars[k].n)}` : ""}${p.tams?.length > 1 ? `&tamanho=${p.tams[t][0].toLowerCase()}` : ""}`;
+const varDaUrl = (p, q) => { const k = p.vars.findIndex((va) => va.n === q.get(chaveVar(p))); return k >= 0 ? k : undefined; };
+const tamDaUrl = (p, q) => { const t = p.tams ? p.tams.findIndex(([n]) => n.toLowerCase() === q.get("tamanho")) : -1; return t >= 0 ? t : undefined; };
+const nomeCat = (id) => CATEGORIAS.find((c) => c[0] === id)[1];
+const maiusc = (t) => t[0].toUpperCase() + t.slice(1);
+/* uma orientacao por categoria, no acordeao */
+const DICA = {
+  cama: "Confira a medida do seu colchão na tabela de medidas. Para colchões mais altos, o lençol com elástico precisa ter a mesma altura ou um pouco mais.",
+  banho: "Antes do primeiro uso, lave as toalhas sem amaciante: elas ficam mais macias e absorvem melhor.",
+  travesseiros: "O protetor de colchão impermeável fica por baixo do lençol e protege o colchão de líquidos e do suor.",
+  cozinha: "Lave os panos de prato antes do primeiro uso e separe das roupas, para não passar cor.",
+};
+
+function escolhaPagina(p) {
   let html = "";
   if (p.vars.length > 1) {
-    const opcoes = p.vars.map((va, i) => {
-      const fora = tem(va) ? "" : ", sem estoque";
-      return `<label class="opcao"><input type="radio" name="ficha-var" value="${i}"${i === fichaK ? " checked" : ""}><span>${esc(va.n)}${fora}</span></label>`;
-    }).join("");
-    html += `<fieldset class="variacao"><legend>${p.rotulo}: <strong id="ficha-var-nome">${esc(p.vars[fichaK].n)}</strong></legend><div class="opcoes">${opcoes}</div></fieldset>`;
+    const opcoes = p.vars.map((va, i) => `<label class="opcao"><input type="radio" name="pp-var" value="${i}"${i === ppK ? " checked" : ""}${tem(va) ? "" : " disabled"}><span>${esc(va.n)}${tem(va) ? "" : ", sem estoque"}</span></label>`).join("");
+    html += `<fieldset class="variacao"><legend>${p.rotulo}: <strong id="pp-var-nome">${esc(p.vars[ppK].n)}</strong></legend><div class="opcoes">${opcoes}</div></fieldset>`;
   }
   if (p.tams) {
-    const opcoes = p.tams.map(([n], i) => `<label class="opcao"><input type="radio" name="ficha-tam" value="${i}"${i === fichaT ? " checked" : ""}><span>${n}</span></label>`).join("");
-    html += `<fieldset class="variacao"><legend>Tamanho: <strong id="ficha-tam-nome">${p.tams[fichaT][0]}</strong></legend><div class="opcoes">${opcoes}</div></fieldset>`;
+    const opcoes = p.tams.map(([n], i) => `<label class="opcao"><input type="radio" name="pp-tam" value="${i}"${i === ppT ? " checked" : ""}><span>${n}</span></label>`).join("");
+    html += `<fieldset class="variacao"><legend>Tamanho: <strong id="pp-tam-nome">${p.tams[ppT][0]}</strong></legend><div class="opcoes">${opcoes}</div></fieldset>`;
   }
   return html;
 }
-function desenharFicha() {
-  const p = fichaP, va = p.vars[fichaK];
-  ficha.innerHTML = `
-    <button class="fechar" type="button" data-fechar-ficha aria-label="Fechar"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
-    <div class="ficha-foto"><img id="ficha-img" src="${fotoP(va.f)}" width="600" height="600" alt="">${p.selo ? `<span class="selo">${p.selo}</span>` : ""}</div>
-    <div class="ficha-info">
-      <p class="produto-marca">${esc(p.marca)}</p>
-      <h2 id="ficha-nome">${esc(p.nome)}</h2>
-      <p class="ficha-preco" id="ficha-preco"></p>
-      <p class="ficha-desc">${esc(p.desc)}</p>
-      ${escolhaFicha(p)}
-      <button class="btn ficha-add" type="button" id="ficha-add" data-adicionar="${p.id}"></button>
-      <p class="ficha-status" id="ficha-status" role="status"></p>
-      <ul class="ficha-entrega">
-        <li>Retirada na loja: ${LOJA}</li>
-        <li>Entrega em Cravinhos</li>
-        <li>Pix ou cartão pelo site, ou dinheiro na retirada</li>
-      </ul>
-    </div>`;
-  mostrarVar();
+/* tabela de medidas: so os tamanhos que o produto tem, com o preco de cada um */
+const medidasHtml = (p) => `<table class="pp-medidas"><thead><tr><th scope="col">Tamanho</th><th scope="col">Colchão</th><th scope="col">Preço</th></tr></thead><tbody>${p.tams.map(([n, preco], i) => `<tr${i === ppT ? ' class="atual"' : ""}><th scope="row">${n}</th><td>${(CAMAS.find((c) => c[0] === n) || [, "—"])[1]}</td><td>${reais(preco)}</td></tr>`).join("")}</tbody></table>`;
+
+function desenharProduto() {
+  const p = ppP, sem = p.vars.filter((va) => !tem(va)).length;
+  const mais = [...PRODUTOS.filter((o) => o.cat === p.cat && o.id !== p.id), ...PRODUTOS.filter((o) => o.cat !== p.cat && o.marca === p.marca)].slice(0, 10);
+  const detalhes = [["Marca", p.marca], ["Categoria", nomeCat(p.cat)],
+    p.vars.length > 1 && [maiusc(PLURAL[p.rotulo]), `${p.vars.length - sem} disponíveis${sem ? ` (${sem} sem estoque no momento)` : ""}`],
+    p.tams && ["Tamanhos", p.tams.map(([n]) => n).join(", ")]].filter(Boolean);
+  const cores = p.vars.length > 1 ? `<div class="pp-cores" role="group" aria-label="Ver as ${PLURAL[p.rotulo]}">${p.vars.map((va, i) => `<button type="button" data-pp-cor="${i}" aria-pressed="${i === ppK}" aria-label="${esc(va.n)}"${tem(va) ? "" : " disabled"}><img src="${fotoP(va.f)}" width="60" height="60" alt=""></button>`).join("")}</div>` : "";
+  pp.innerHTML = `
+  <div class="envoltorio">
+    <nav class="trilha" aria-label="Você está em"><ol>
+      <li><a href="#">Início</a></li>
+      <li><a href="#produtos" data-ir="${p.cat}">${nomeCat(p.cat)}</a></li>
+      <li><span aria-current="page">${esc(p.nome)}</span></li>
+    </ol></nav>
+    <div class="pp-grade">
+      <div class="pp-galeria">
+        <figure class="pp-foto" id="pp-foto"><img id="pp-img" src="${fotoP(p.vars[ppK].f)}" width="600" height="600" alt="">${p.selo ? `<span class="selo">${p.selo}</span>` : ""}</figure>
+        ${cores}
+      </div>
+      <div class="pp-info">
+        <p class="produto-marca">${esc(p.marca)}</p>
+        <h1 id="pp-titulo" tabindex="-1">${esc(p.nome)}</h1>
+        <a class="pp-nota" href="#avaliacoes"><span class="estrelas" aria-hidden="true">${'<svg><use href="#i-estrela"/></svg>'.repeat(5)}</span><span>Loja com nota 4,7 no Google, em 98 avaliações</span></a>
+        <div class="pp-preco"><strong id="pp-preco"></strong><span id="pp-parcela"></span></div>
+        <p class="pp-desc">${esc(p.desc)}</p>
+        ${escolhaPagina(p)}
+        <div class="pp-compra">
+          <div class="qtd" role="group" aria-label="Quantidade"><button type="button" data-pp-qtd="-1" aria-label="Diminuir quantidade">−</button><output id="pp-qtd" aria-live="polite">1</output><button type="button" data-pp-qtd="1" aria-label="Aumentar quantidade">+</button></div>
+          <button class="btn" type="button" id="pp-add" data-adicionar="${p.id}" data-pp></button>
+          <button class="btn btn-linha" type="button" id="pp-comprar">Comprar agora</button>
+        </div>
+        <p class="pp-status" id="pp-status" role="status"></p>
+        <section class="pp-receber" aria-labelledby="pp-receber-titulo">
+          <h2 id="pp-receber-titulo">Receber e pagar</h2>
+          <form class="pp-cep" id="pp-cep"><label class="so-leitor" for="pp-cep-campo">CEP</label><input id="pp-cep-campo" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="Informe o seu CEP"><button class="btn" type="submit">Consultar</button></form>
+          <p class="pp-cep-res" id="pp-cep-res" role="status"></p>
+          <ul class="pp-modos">
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 13 6 6h20l2 7M4 13h24M4 13v13h24V13M12 26v-7h8v7"/></svg><span><strong>Retirada na loja, sem custo</strong>${esc(LOJA)}</span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 9h16v13H3zM19 13h5l4 5v4h-9"/><circle cx="8" cy="24" r="2.5"/><circle cx="23" cy="24" r="2.5"/></svg><span><strong>Entrega em Cravinhos</strong>A taxa é informada pelo WhatsApp</span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="3"/><path d="M4 13h24M9 19h5"/></svg><span><strong>Pix ou cartão em até 4x sem juros</strong>Dinheiro somente na retirada</span></li>
+          </ul>
+          <a class="pp-zap" href="${zap(`Olá! Vim pelo site e tenho uma dúvida sobre ${p.nome} ${p.marca}.`)}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-zap"/></svg>Dúvidas sobre este produto? Fale conosco</a>
+        </section>
+      </div>
+    </div>
+    <div class="pp-sobre">
+      <details open><summary>Descrição</summary><div><p>${esc(p.desc)}</p><p>Produto vendido e entregue pela A Vantajosa, em Cravinhos.</p></div></details>
+      ${p.tams ? `<details><summary>Tabela de medidas</summary><div>${medidasHtml(p)}<p>Medidas do colchão de cada tamanho. Na dúvida, meça o seu colchão antes de escolher.</p></div></details>` : ""}
+      <details><summary>Cuidados e dicas</summary><div><p>${DICA[p.cat]}</p></div></details>
+      <details><summary>Detalhes do produto</summary><div><dl class="pp-detalhes">${detalhes.map(([t, d]) => `<dt>${t}</dt><dd>${esc(d)}</dd>`).join("")}</dl></div></details>
+    </div>
+  </div>
+  ${mais.length ? `<div class="faixa-costura" aria-hidden="true" style="--fundo-costura:var(--palha)"><hr class="costura"></div>
+  <section class="pp-mais secao-palha" aria-labelledby="pp-mais-titulo">
+    <div class="envoltorio prateleira">
+      <div class="prateleira-topo">
+        <h2 id="pp-mais-titulo">${mais.some((o) => o.cat !== p.cat) ? "Você também pode gostar" : `Mais em ${nomeCat(p.cat).toLowerCase()}`}</h2>
+        <div class="prateleira-setas">
+          <button class="seta" type="button" data-passo="-1" aria-label="Voltar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="seta" type="button" data-passo="1" aria-label="Mais produtos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <ul class="fileira">${mais.map((o) => cartao(o, 3)).join("")}</ul>
+    </div>
+  </section>` : ""}
+  <div class="pp-barra" id="pp-barra" inert><strong id="pp-barra-preco"></strong><button class="btn" type="button" id="pp-barra-add" data-adicionar="${p.id}" data-pp></button></div>`;
+  $(".pp-mais .fileira", pp)?.addEventListener("scroll", setas, { passive: true });
+  mostrarOpcao();
+  barraCompra();
+  setas();
 }
+/* a barra de baixo so aparece no celular, depois que o botao principal passou para baixo do topo */
+function barraCompra() {
+  const barra = $("#pp-barra"); if (!barra || pp.hidden) return;
+  const ver = $("#pp-add").getBoundingClientRect().bottom < $(".topo").getBoundingClientRect().bottom;
+  if (barra.classList.contains("visivel") === ver) return;
+  barra.classList.toggle("visivel", ver); barra.inert = !ver;
+}
+addEventListener("scroll", barraCompra, { passive: true });
+
 /* trocar a cor troca a foto; trocar o tamanho troca o preco */
-function mostrarVar() {
-  const p = fichaP, va = p.vars[fichaK], img = $("#ficha-img"), b = $("#ficha-add");
-  img.src = fotoP(va.f); img.alt = `${p.marca} ${p.nome}${va.n ? `, ${p.rotulo.toLowerCase()} ${va.n}` : ""}`;
-  $("#ficha-preco").textContent = reais(precoDe(p, fichaT));
-  const nome = $("#ficha-var-nome"); if (nome) nome.textContent = va.n;
-  $("#ficha-status").textContent = "";
-  clearTimeout(b._t); b.classList.remove("adicionado");
-  b.disabled = !tem(va);
-  b.innerHTML = tem(va) ? `<svg aria-hidden="true"><use href="#i-sacola"/></svg>Adicionar ao carrinho` : "Sem estoque";
+function mostrarOpcao() {
+  const p = ppP, va = p.vars[ppK], img = $("#pp-img"), preco = precoDe(p, ppT);
+  img.src = fotoP(va.f); img.alt = `${p.nome} ${p.marca}${va.n ? `, ${p.rotulo.toLowerCase()} ${va.n}` : ""}`;
+  $("#pp-preco").textContent = reais(preco);
+  $("#pp-barra-preco").textContent = reais(preco);
+  $("#pp-parcela").textContent = preco >= 80 ? `à vista no Pix ou em até 4x de ${reais(preco / 4)} sem juros no cartão` : "à vista no Pix ou no cartão";
+  const nome = $("#pp-var-nome"); if (nome) nome.textContent = va.n;
+  const tam = $("#pp-tam-nome"); if (tam) tam.textContent = p.tams[ppT][0];
+  pp.querySelectorAll("[data-pp-cor]").forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.ppCor === ppK)));
+  pp.querySelectorAll(".pp-medidas tbody tr").forEach((tr, i) => tr.classList.toggle("atual", i === ppT));
+  $("#pp-status").textContent = "";
+  ["#pp-add", "#pp-barra-add"].forEach((sel) => {
+    const b = $(sel); clearTimeout(b._t); b.classList.remove("adicionado");
+    b.disabled = !tem(va);
+    b.innerHTML = tem(va) ? `<svg aria-hidden="true"><use href="#i-sacola"/></svg>Adicionar ao carrinho` : "Sem estoque";
+  });
+  $("#pp-comprar").disabled = !tem(va);
 }
-ficha.addEventListener("change", (e) => {
-  if (e.target.name === "ficha-tam") { fichaT = +e.target.value; $("#ficha-tam-nome").textContent = fichaP.tams[fichaT][0]; mostrarVar(); piscar($("#ficha-preco")); return; }
-  if (e.target.name !== "ficha-var") return;
-  fichaK = +e.target.value;
-  mostrarVar();
-  piscar($("#ficha-img"));
-});
-function abrirFicha(id, k, empurrar = true, t) {
+
+function modoProduto(ligar) {
+  [".destaques-secao", "#conteudo"].forEach((sel) => { $(sel).hidden = ligar; });
+  pp.hidden = !ligar;
+}
+function abrirProduto(id, k, empurrar = true, t) {
   const p = porId(id); if (!p) return;
-  fichaP = p; fichaK = k ?? varInicial(p); fichaT = p.tams ? (t ?? tamInicial(p)) : 0;
-  desenharFicha();
-  if (empurrar) history.pushState({ ficha: id }, "", `#produto-${id}`);
-  clearTimeout(fichaFecha);
-  if (!ficha.open) { ficha.showModal(); requestAnimationFrame(() => requestAnimationFrame(() => ficha.classList.add("aberta"))); }
-  else ficha.classList.add("aberta");
-  ficha.scrollTop = 0;
+  ppP = p; ppK = k ?? varInicial(p); ppT = p.tams ? (t ?? tamInicial(p)) : 0; ppQtd = 1;
+  if (empurrar) {
+    /* guarda onde a pessoa estava na vitrine, para o voltar devolver ao mesmo ponto */
+    if (pp.hidden) history.replaceState({ ...history.state, rolagem: scrollY }, "");
+    history.pushState({ produto: id }, "", urlProduto(p, ppK, ppT));
+  }
+  desenharProduto();
+  modoProduto(true);
+  document.title = `${p.nome} ${p.marca} | A Vantajosa`;
+  scrollTo({ top: 0, behavior: "instant" });
+  $("#pp-titulo").focus({ preventScroll: true });
 }
-/* fechar volta no historico, assim o botao voltar do celular tambem fecha */
-function fecharFicha(voltar = true) {
-  if (!ficha.open) return;
-  if (voltar && history.state?.ficha) { history.back(); return; }
-  if (voltar && location.hash.startsWith("#produto-")) history.replaceState(null, "", location.pathname + location.search);
-  ficha.classList.remove("aberta");
-  fichaFecha = setTimeout(() => ficha.close(), reduzir.matches ? 200 : 280);
+function voltarLoja(rolagem) {
+  if (pp.hidden) return;
+  modoProduto(false); ppP = null; pp.innerHTML = "";
+  document.title = TITULO;
+  setas(); mostrarFlutuante();
+  if (rolagem != null) scrollTo({ top: rolagem, behavior: "instant" });
 }
-ficha.addEventListener("cancel", (e) => { e.preventDefault(); fecharFicha(); });
-ficha.addEventListener("click", (e) => {
-  if (e.target === ficha || e.target.closest("[data-fechar-ficha]")) { fecharFicha(); return; }
-  if (e.target.closest("[data-ver-sacola]")) { fecharFicha(); abrirSacola(); }
+addEventListener("popstate", (e) => {
+  const q = new URLSearchParams(location.search), p = porId(q.get("produto"));
+  if (p) { abrirProduto(p.id, varDaUrl(p, q), false, tamDaUrl(p, q)); return; }
+  voltarLoja(e.state?.rolagem ?? 0);
 });
-addEventListener("popstate", () => {
-  const m = location.hash.match(/^#produto-(.+)$/);
-  if (m && porId(m[1])) abrirFicha(m[1], undefined, false); else fecharFicha(false);
+/* links internos (#produtos, #loja, logo) dentro da pagina do produto voltam para a vitrine */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || pp.hidden || a.closest("#sacola")) return;
+  e.preventDefault();
+  const alvo = a.getAttribute("href");
+  history.pushState(null, "", location.pathname + (alvo.length > 1 ? alvo : ""));
+  voltarLoja();
+  const el = alvo.length > 1 && document.querySelector(alvo);
+  if (el) el.scrollIntoView({ behavior: "instant" }); else scrollTo({ top: 0, behavior: "instant" });
+}, true);
+
+pp.addEventListener("change", (e) => {
+  if (e.target.name === "pp-tam") { ppT = +e.target.value; mostrarOpcao(); piscar($("#pp-preco")); }
+  else if (e.target.name === "pp-var") { ppK = +e.target.value; mostrarOpcao(); piscar($("#pp-img")); }
+  else return;
+  history.replaceState(history.state, "", urlProduto(ppP, ppK, ppT));
+});
+pp.addEventListener("click", (e) => {
+  const q = e.target.closest("[data-pp-qtd]");
+  if (q) { ppQtd = Math.min(20, Math.max(1, ppQtd + +q.dataset.ppQtd)); $("#pp-qtd").textContent = ppQtd; return; }
+  const cor = e.target.closest("[data-pp-cor]");
+  if (cor) { const r = pp.querySelector(`input[name="pp-var"][value="${cor.dataset.ppCor}"]`); if (r && !r.disabled) r.click(); return; }
+  if (e.target.closest("#pp-comprar")) { adicionar(ppP.id, ppK, ppT, ppQtd); abrirSacola(); return; }
+  if (e.target.closest("[data-ver-sacola]")) { abrirSacola(); return; }
+  const seta = e.target.closest("[data-passo]");
+  if (seta) { const f = $(".fileira", seta.closest(".prateleira")); f.scrollBy({ left: seta.dataset.passo * f.clientWidth, behavior: reduzir.matches ? "auto" : "smooth" }); }
+});
+/* lupa da foto */
+pp.addEventListener("pointermove", (e) => {
+  const f = e.target.closest("#pp-foto"); if (!f || e.pointerType !== "mouse") return;
+  const r = f.getBoundingClientRect();
+  f.style.setProperty("--zx", `${((e.clientX - r.left) / r.width) * 100}%`);
+  f.style.setProperty("--zy", `${((e.clientY - r.top) / r.height) * 100}%`);
+  f.classList.add("zoom");
+});
+pp.addEventListener("pointerout", (e) => { const f = e.target.closest("#pp-foto"); if (f && !f.contains(e.relatedTarget)) f.classList.remove("zoom"); });
+/* consulta pelo CEP: a entrega e so em Cravinhos */
+pp.addEventListener("input", (e) => { if (e.target.id === "pp-cep-campo") e.target.value = e.target.value.replace(/\D/g, "").replace(/^(\d{5})(\d)/, "$1-$2").slice(0, 9); });
+pp.addEventListener("submit", async (e) => {
+  if (e.target.id !== "pp-cep") return;
+  e.preventDefault();
+  const n = $("#pp-cep-campo").value.replace(/\D/g, ""), res = $("#pp-cep-res");
+  if (n.length !== 8) { res.textContent = "Informe os 8 números do CEP."; return; }
+  res.textContent = "Consultando…";
+  try {
+    const d = await (await fetch(`https://viacep.com.br/ws/${n}/json/`)).json();
+    if (d.erro) { res.textContent = "CEP não encontrado. Confira os números."; return; }
+    if (d.localidade.toLowerCase() === "cravinhos") {
+      /* o carrinho ja abre com a entrega e o endereco preenchidos */
+      Object.assign(ck, { receber: "entrega", cep: `${n.slice(0, 5)}-${n.slice(5)}`, rua: d.logradouro || ck.rua, bairro: d.bairro || ck.bairro, cidade: `${d.localidade} (${d.uf})` }); ultimoCep = n;
+      res.innerHTML = `<strong>Entregamos no seu endereço${d.logradouro ? `, ${esc(d.logradouro)}` : ""}.</strong> A taxa é informada pela nossa equipe no WhatsApp. Se preferir, retire na loja sem custo.`;
+    } else res.innerHTML = `<strong>${esc(d.localidade)} (${esc(d.uf)}):</strong> a entrega é feita só em Cravinhos. Você pode comprar pelo site e retirar o pedido na loja.`;
+    piscar(res);
+  } catch { res.textContent = "Não foi possível consultar agora. Tente de novo em instantes."; }
 });
 
 /* ---------- carrinho ---------- */
@@ -1043,11 +1305,12 @@ function adicionar(id, k, t, qtd = 1) {
 }
 document.addEventListener("click", (e) => {
   const abrir = e.target.closest("[data-abrir]");
-  if (abrir) { e.preventDefault(); abrirFicha(abrir.dataset.abrir); return; }
+  /* ctrl/cmd + clique abre o produto em outra aba, como qualquer link */
+  if (abrir) { if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return; e.preventDefault(); abrirProduto(abrir.dataset.abrir); return; }
   const b = e.target.closest("[data-adicionar]"); if (!b || b.disabled) return;
-  const naFicha = !!b.closest("#ficha"), p = porId(b.dataset.adicionar);
-  adicionar(p.id, naFicha ? fichaK : varInicial(p), naFicha ? fichaT : undefined);
-  if (naFicha) $("#ficha-status").innerHTML = `Adicionado ao carrinho. <button class="ver-sacola" type="button" data-ver-sacola>Ver o carrinho</button>`;
+  const naPagina = b.hasAttribute("data-pp"), p = porId(b.dataset.adicionar);
+  if (naPagina) adicionar(p.id, ppK, ppT, ppQtd); else adicionar(p.id, varInicial(p));
+  if (naPagina) $("#pp-status").innerHTML = `${ppQtd > 1 ? `${ppQtd} unidades adicionadas` : "Adicionado"} ao carrinho. <button class="ver-sacola" type="button" data-ver-sacola>Ver o carrinho</button>`;
   /* o botao confirma o que aconteceu e volta ao normal */
   const texto = b.innerHTML;
   b.classList.add("adicionado");
@@ -1362,7 +1625,7 @@ function listaAtual() {
 }
 const linhaLista = ({ p, k, t, qtd }) => {
   const va = p.vars[k], d = detalhe(p, va, t), preco = precoDe(p, t);
-  return `<li><img src="${fotoP(va.f)}" width="56" height="56" alt="" loading="lazy"><a href="#produto-${p.id}" data-abrir="${p.id}" data-tam="${t ?? ""}">${qtd > 1 ? `${qtd}x ` : ""}${esc(p.nome)}</a><small>${esc(p.marca)}${d ? `, ${esc(d)}` : ""}</small><strong>${reais(preco * qtd)}${qtd > 1 ? `<small>${reais(preco)} cada</small>` : ""}</strong></li>`;
+  return `<li><img src="${fotoP(va.f)}" width="56" height="56" alt="" loading="lazy"><a href="?produto=${p.id}" data-abrir="${p.id}" data-var="${k}" data-tam="${t ?? ""}">${qtd > 1 ? `${qtd}x ` : ""}${esc(p.nome)}</a><small>${esc(p.marca)}${d ? `, ${esc(d)}` : ""}</small><strong>${reais(preco * qtd)}${qtd > 1 ? `<small>${reais(preco)} cada</small>` : ""}</strong></li>`;
 };
 function desenharLista() {
   const todos = listaAtual(), pecas = todos.reduce((s, l) => s + l.qtd, 0);
@@ -1391,7 +1654,7 @@ $("#enxoval").addEventListener("change", (e) => {
 $("#enxoval").addEventListener("click", (e) => {
   /* o link do produto abre a pagina ja no tamanho da cama escolhida */
   const a = e.target.closest("[data-tam]");
-  if (a) { e.preventDefault(); e.stopPropagation(); abrirFicha(a.dataset.abrir, undefined, true, a.dataset.tam === "" ? undefined : +a.dataset.tam); return; }
+  if (a) { if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return; e.preventDefault(); e.stopPropagation(); abrirProduto(a.dataset.abrir, +a.dataset.var, true, a.dataset.tam === "" ? undefined : +a.dataset.tam); return; }
   if (e.target.closest("#lista-ver")) { abrirSacola(); return; }
   if (!e.target.closest("#lista-add")) return;
   const todos = listaAtual();
@@ -1461,8 +1724,15 @@ document.addEventListener("keydown", (e) => {
 matchMedia("(min-width: 60.01em)").addEventListener("change", (m) => { if (m.matches) menu(false); });
 
 mostrarFlutuante();
-const pedidoNoLink = location.hash.match(/^#produto-(.+)$/);
-if (pedidoNoLink && porId(pedidoNoLink[1])) abrirFicha(pedidoNoLink[1], undefined, false);
+/* endereco do produto: ?produto=id (os links antigos #produto-id continuam funcionando) */
+{
+  const q = new URLSearchParams(location.search), antigo = location.hash.match(/^#produto-(.+)$/);
+  const p = porId(q.get("produto") || antigo?.[1]);
+  if (p) {
+    if (antigo) history.replaceState(null, "", urlProduto(p, varInicial(p), p.tams ? tamInicial(p) : 0));
+    abrirProduto(p.id, varDaUrl(p, q), false, tamDaUrl(p, q));
+  }
+}
 </script>
 </body>
 </html>
